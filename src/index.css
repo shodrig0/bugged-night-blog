@@ -53,6 +53,12 @@
     }
 }
 
+
+.slick-slide {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
 .slick-dots li button:before {
   display: none; 
 }
