@@ -24,7 +24,7 @@ export default function App() {
                         <Route path="/maps" element={<Maps />} />
                         <Route path="/tournaments" element={<Tournaments />} />
                         <Route path="/contactform" element={<ContactForm />} />
-                        <Route path="/faqs" element={<FAQsWrapper query={{ slug: "home", type: "pages" }} />} />
+                        <Route path="/faqs" element={<FAQsWrapper query={{ slug: "home", type: "faqs" }} />} />
                     </Routes>
                 </main>
                 {/* <CosmicBadge bucketSlug={import.meta.env.VITE_COSMIC_BUCKET_SLUG as string} /> */}

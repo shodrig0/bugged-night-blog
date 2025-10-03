@@ -36,10 +36,10 @@ export default function Navigation() {
                         <Link to="/maps" className={`${isActive('/maps')} transition-colors duration-200 py-4`}>
                             Mapas
                         </Link>
-                        <Link to="/contactform" className={`${isActive('/maps')} transition-colors duration-200 py-4`}>
+                        <Link to="/contactform" className={`${isActive('/contactform')} transition-colors duration-200 py-4`}>
                             Contacto
                         </Link>
-                        <Link to="/faqs" className={`${isActive('/maps')} transition-colors duration-200 py-4`}>
+                        <Link to="/faqs" className={`${isActive('/faqs')} transition-colors duration-200 py-4`}>
                             FAQs
                         </Link>
                     </div>
