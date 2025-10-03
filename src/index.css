@@ -54,26 +54,5 @@
 }
 
 
-.slick-slide {
-  display: flex !important;
-  align-items: stretch !important;
-}
 
-.slick-dots li button:before {
-  display: none; 
-}
 
-.slick-dots li button {
-  transition: all 0.3s ease;
-  background-color: #4b5563; /* gris-600 por defecto */
-}
-
-.slick-dots li button:hover {
-  background-color: #2563eb; /* azul más fuerte al hover */
-}
-
-.slick-dots li.slick-active button {
-  width: 32px;
-  border-radius: 9999px;
-  background-color: #3b82f6; 
-}
