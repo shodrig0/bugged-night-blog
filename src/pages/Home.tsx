@@ -81,8 +81,7 @@ export default function Home() {
         {news.length > 0 && (
           <NewsCarousel
             news={news}
-            getCategoryColor={getCategoryColor}
-            getPriorityBadge={getPriorityBadge}
+            
           />
         )}
 
