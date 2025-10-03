@@ -54,11 +54,3 @@
 }
 
 
-
-/* Asegura que con fade los slides se superpongan correctamente */
-.slick-slide {
-  display: none;
-}
-.slick-slide.slick-active {
-  display: block;
-}

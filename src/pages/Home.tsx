@@ -4,7 +4,8 @@ import { News } from '../types'
 import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
 import NewsCarousel from "../components/Carrusel"
-import { getCategoryColor,getPriorityBadge } from '@/utils/newHrlpers'
+
+
 
 
 export default function Home() {
@@ -74,18 +75,12 @@ export default function Home() {
                     Latest news, updates, and community highlights
                 </p>
             </div>
-
-          <h1 className="text-4xl font-bold mb-8">Últimas Noticiaaas</h1>
-
-        {/* 🔹 Invocás tu carrusel con props */}
+          <h1 className="text-4xl font-bold mb-8">Últimas Noticiaaas</h1> 
         {news.length > 0 && (
           <NewsCarousel
-            news={news}
-            
+            news={news}     
           />
         )}
-
-            {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="card text-center">
                     <div className="text-4xl font-bold gradient-text mb-2">3</div>
