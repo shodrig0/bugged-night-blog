@@ -189,6 +189,16 @@ export interface News extends CosmicObject {
     };
 }
 
+export interface Comment {
+    id: string
+    title: string
+    metadata: {
+        email: string
+        comment: string
+        created_at?: string
+    }
+}
+
 // API Response types
 export interface CosmicResponse<T> {
     objects: T[];

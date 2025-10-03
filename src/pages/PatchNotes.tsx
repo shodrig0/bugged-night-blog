@@ -5,6 +5,8 @@ import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
 import { format } from 'date-fns'
 
+import Comments from '@/components/Comments'
+
 export default function PatchNotes() {
     const [patches, setPatches] = useState<PatchNote[]>([])
     const [loading, setLoading] = useState(true)
@@ -61,27 +63,24 @@ export default function PatchNotes() {
         <div className="space-y-8">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                    Patch Notes
+                    Notas de parches
                 </h1>
                 <p className="text-gray-400 text-lg">
-                    Latest game updates and balance changes
+                    Últimas actualizaciones del juego
                 </p>
             </div>
 
-            {/* Patch Timeline */}
             <div className="space-y-6">
                 {patches.map((patch, index) => {
                     if (!patch || !patch.metadata) return null
 
                     return (
                         <div key={patch.id} className="relative">
-                            {/* Timeline Line */}
                             {index < patches.length - 1 && (
                                 <div className="absolute left-4 top-16 bottom-0 w-0.5 bg-dark-border"></div>
                             )}
 
                             <div className="card relative ml-12">
-                                {/* Timeline Dot */}
                                 <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary border-4 border-dark"></div>
 
                                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
@@ -114,7 +113,6 @@ export default function PatchNotes() {
                                     />
                                 )}
 
-                                {/* Balance Changes */}
                                 {patch.metadata.balance_changes && patch.metadata.balance_changes.length > 0 && (
                                     <div className="mb-6">
                                         <h4 className="text-lg font-semibold text-secondary mb-3">Balance Changes</h4>
@@ -129,7 +127,6 @@ export default function PatchNotes() {
                                     </div>
                                 )}
 
-                                {/* Bug Fixes */}
                                 {patch.metadata.bug_fixes && patch.metadata.bug_fixes.length > 0 && (
                                     <div className="mb-6">
                                         <h4 className="text-lg font-semibold text-yellow-500 mb-3">Bug Fixes</h4>
@@ -144,7 +141,6 @@ export default function PatchNotes() {
                                     </div>
                                 )}
 
-                                {/* New Features */}
                                 {patch.metadata.new_features && patch.metadata.new_features.length > 0 && (
                                     <div>
                                         <h4 className="text-lg font-semibold text-accent mb-3">New Features</h4>
@@ -159,6 +155,7 @@ export default function PatchNotes() {
                                     </div>
                                 )}
                             </div>
+
                         </div>
                     )
                 })}
@@ -169,6 +166,7 @@ export default function PatchNotes() {
                     <p className="text-gray-400">No patch notes available</p>
                 </div>
             )}
+            <Comments />
         </div>
     )
 }
