@@ -24,28 +24,22 @@ interface NewsCarouselProps {
 }
 
 const NewsCarousel: React.FC<NewsCarouselProps> = ({ news, getCategoryColor, getPriorityBadge }) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    fade: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    customPaging: (i: number) => (
-      <button
-        className="w-2 h-2 rounded-full bg-gray-600"
-        aria-label={`Go to slide ${i + 1}`}
-      />
-    ),
-  }
+ const settings = {
+  dots: true,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false, 
+  // fade: true,  <-- comentado
+}
 
   return (
     <div className="slider-container">
       <Slider {...settings}>
         {news.map((item) => (
           <div key={item.id} className="card overflow-hidden">
-            <div className="relative h-96 md:h-[500px]">
+            <div className="relative h-96 md:h-[500px] w-full">
               {/* Imagen de fondo */}
               {item.metadata?.featured_image && (
                 <img

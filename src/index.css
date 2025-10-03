@@ -56,3 +56,13 @@
 
 
 
+/* fuerza a que todos los slides ocupen el mismo espacio */
+.slick-slide {
+  display: flex !important;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si hace falta */
+}
+
+.slick-slide > div {
+  width: 100%; /* asegura que cada slide ocupe todo el ancho del carrusel */
+}
