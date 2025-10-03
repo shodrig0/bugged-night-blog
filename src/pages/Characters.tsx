@@ -69,13 +69,12 @@ export default function Characters() {
                 </p>
             </div>
 
-            {/* Role Filter */}
             <div className="flex justify-center gap-4 flex-wrap">
                 <button
                     onClick={() => setSelectedRole('all')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === 'all'
-                            ? 'bg-primary text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-primary text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
                     All
@@ -83,8 +82,8 @@ export default function Characters() {
                 <button
                     onClick={() => setSelectedRole('assassin')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === 'assassin'
-                            ? 'bg-red-500 text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-red-500 text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
                     Assassin
@@ -92,8 +91,8 @@ export default function Characters() {
                 <button
                     onClick={() => setSelectedRole('hunter')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === 'hunter'
-                            ? 'bg-secondary text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-secondary text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
                     Hunter
@@ -101,15 +100,14 @@ export default function Characters() {
                 <button
                     onClick={() => setSelectedRole('survivor')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === 'survivor'
-                            ? 'bg-accent text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-accent text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
                     Survivor
                 </button>
             </div>
 
-            {/* Characters Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredCharacters.map((character) => {
                     if (!character || !character.metadata) return null
@@ -135,7 +133,6 @@ export default function Characters() {
                                 </div>
                             )}
 
-                            {/* Stats */}
                             <div className="grid grid-cols-3 gap-4 mb-4">
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">{character.metadata.health_points || 0}</div>
@@ -151,7 +148,6 @@ export default function Characters() {
                                 </div>
                             </div>
 
-                            {/* Special Ability */}
                             {character.metadata.special_ability && (
                                 <div className="mb-4">
                                     <h4 className="text-sm font-semibold text-primary mb-2">Special Ability</h4>
@@ -159,7 +155,6 @@ export default function Characters() {
                                 </div>
                             )}
 
-                            {/* Skills */}
                             {character.metadata.skills && character.metadata.skills.length > 0 && (
                                 <div className="mb-4">
                                     <h4 className="text-sm font-semibold text-secondary mb-2">Skills</h4>
@@ -177,7 +172,6 @@ export default function Characters() {
                                 </div>
                             )}
 
-                            {/* Available Skins */}
                             {character.metadata.available_skins && character.metadata.available_skins.length > 0 && (
                                 <div>
                                     <h4 className="text-sm font-semibold text-accent mb-2">Available Skins</h4>

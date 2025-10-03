@@ -29,7 +29,7 @@ export default function Comments() {
             const data = await getComments();
             setComments(data as unknown as Comment[])
         } catch (error) {
-            console.error('Error loading comments:', error)
+            console.error('Error cargando comentarios:', error)
         } finally {
             setLoading(false)
         }
@@ -49,10 +49,10 @@ export default function Comments() {
             setFormData({ name: '', email: '', comment: '' })
             await loadComments()
 
-            alert('¡Comentario enviado con éxito!')
+            alert('Comentario enviado con éxito')
         } catch (error) {
             console.error('Error submitting comment:', error)
-            alert('Error al enviar el comentario')
+            alert('Error')
         } finally {
             setSubmitting(false)
         }

@@ -14,7 +14,7 @@ export default function Navigation() {
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <Link to="/" className="flex items-center space-x-2">
-                        <span className="text-2xl font-bold gradient-text">Game Dashboard</span>
+                        <span className="text-2xl font-bold gradient-text">BUGGED NIGHT</span>
                     </Link>
 
                     <div className="hidden md:flex space-x-8">
@@ -22,19 +22,19 @@ export default function Navigation() {
                             Home
                         </Link>
                         <Link to="/characters" className={`${isActive('/characters')} transition-colors duration-200 py-4`}>
-                            Characters
+                            Personajes
                         </Link>
                         <Link to="/rankings" className={`${isActive('/rankings')} transition-colors duration-200 py-4`}>
                             Rankings
                         </Link>
                         <Link to="/tournaments" className={`${isActive('/tournaments')} transition-colors duration-200 py-4`}>
-                            Tournaments
+                            Torneos
                         </Link>
                         <Link to="/patch-notes" className={`${isActive('/patch-notes')} transition-colors duration-200 py-4`}>
-                            Patch Notes
+                            Notas del Parche
                         </Link>
                         <Link to="/maps" className={`${isActive('/maps')} transition-colors duration-200 py-4`}>
-                            Maps
+                            Mapas
                         </Link>
                     </div>
 

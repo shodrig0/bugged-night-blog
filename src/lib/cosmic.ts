@@ -24,7 +24,6 @@ export async function getComments(): Promise<Comment[]> {
 
         return objects as Comment[]
     } catch (error) {
-        console.error('Error fetching comments:', error)
         return []
     }
 }
@@ -44,7 +43,6 @@ export async function createComment(
             }
         })
     } catch (error) {
-        console.error('Error al crear un comentario:', error)
         throw new Error('Falló la creación')
     }
 }
