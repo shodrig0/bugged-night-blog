@@ -3,7 +3,7 @@ import { cosmic, hasStatus } from '../lib/cosmic'
 import { News } from '../types'
 import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
-import NewsCarousel from "../components/Carrusel"
+import Slider from "react-slick"
 
 
 
@@ -14,6 +14,17 @@ export default function Home() {
     const [error, setError] = useState<string | null>(null)
     const [currentSlide, setCurrentSlide] = useState(0)
 
+
+     const settings = {
+        dots: true,
+        fade: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        waitForAnimate: false,
+        arrows: false,
+    }
     useEffect(() => {
         fetchNews()
     }, [])
@@ -75,12 +86,23 @@ export default function Home() {
                     Latest news, updates, and community highlights
                 </p>
             </div>
-          <h1 className="text-4xl font-bold mb-8">Últimas Noticiaaas</h1> 
-        {news.length > 0 && (
-          <NewsCarousel
-            news={news}     
-          />
-        )}
+          <h1 className="text-4xl font-bold mb-8">Últimas Noticias</h1> 
+       <Slider {...settings}>
+                {news.map((item) => (
+                    <div key={item.id} className="relative h-96 md:h-[500px] w-full">
+                        {item.metadata?.featured_image && (
+                            <img
+                                src={`${item.metadata.featured_image.imgix_url}?w=1200&h=600&fit=crop&auto=format,compress`}
+                                alt={item.title}
+                                className="w-full h-full object-cover"
+                            />
+                        )}
+                        <div className="absolute bottom-4 left-4 bg-black/60 text-white px-4 py-2 rounded">
+                            {item.title}
+                        </div>
+                    </div>
+                ))}
+            </Slider>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="card text-center">
                     <div className="text-4xl font-bold gradient-text mb-2">3</div>

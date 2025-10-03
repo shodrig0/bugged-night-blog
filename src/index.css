@@ -63,7 +63,7 @@
 
 .slick-slide {
   height: 100%;
-  display: flex !important;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -78,4 +78,9 @@
 .slick-slide.slick-active {
   opacity: 1;
   visibility: visible;
+  display: block;
+}
+
+.slick-slide {
+  display: none;
 }
