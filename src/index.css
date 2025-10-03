@@ -52,3 +52,12 @@
         @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
     }
 }
+
+.slick-dots li button:before {
+  display: none; 
+}
+.slick-dots li.slick-active button {
+  width: 32px;
+  border-radius: 9999px;
+  background-color: #3b82f6; 
+}
