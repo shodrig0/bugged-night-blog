@@ -62,7 +62,7 @@ export default function Home() {
     if (!currentNews) {
         return (
             <div className="text-center py-12">
-                <p className="text-gray-400">No news available</p>
+                <p className="text-gray-400">Sin noticias todavía</p>
             </div>
         )
     }
@@ -71,10 +71,10 @@ export default function Home() {
         <div className="space-y-8">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                    Welcome to the Arena
+                    Bienvenidos
                 </h1>
                 <p className="text-gray-400 text-lg">
-                    Latest news, updates, and community highlights
+                    Todo el desarrollo de Bugged Night será publicado acá
                 </p>
             </div>
 
@@ -99,21 +99,6 @@ export default function Home() {
                     </div>
                 ))}
             </Slider>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="card text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">3</div>
-                    <div className="text-gray-400">Playable Characters</div>
-                </div>
-                <div className="card text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">2</div>
-                    <div className="text-gray-400">Active Tournaments</div>
-                </div>
-                <div className="card text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">2</div>
-                    <div className="text-gray-400">Available Maps</div>
-                </div>
-            </div>
         </div>
     )
 }

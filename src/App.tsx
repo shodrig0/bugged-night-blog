@@ -6,7 +6,9 @@ import Rankings from './pages/Rankings'
 import PatchNotes from './pages/PatchNotes'
 import Maps from './pages/Maps'
 import Tournaments from './pages/Tournaments'
-// import CosmicBadge from './components/CosmicBadge'
+import { ContactForm } from '../cosmic/blocks/contact-form/ContactForm'
+import { FAQsWrapper } from '../cosmic/blocks/faqs/FAQs'
+
 
 export default function App() {
     return (
@@ -21,6 +23,8 @@ export default function App() {
                         <Route path="/patch-notes" element={<PatchNotes />} />
                         <Route path="/maps" element={<Maps />} />
                         <Route path="/tournaments" element={<Tournaments />} />
+                        <Route path="/contactform" element={<ContactForm />} />
+                        <Route path="/faqs" element={<FAQsWrapper query={{ slug: "home", type: "pages" }} />} />
                     </Routes>
                 </main>
                 {/* <CosmicBadge bucketSlug={import.meta.env.VITE_COSMIC_BUCKET_SLUG as string} /> */}
