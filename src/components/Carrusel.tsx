@@ -47,7 +47,7 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ news, getCategoryColor, get
       <Slider {...settings}>
         {news.map((item) => (
           <div key={item.id} className="card overflow-hidden">
-            <div className="relative h-96 md:h-[500px]">
+            <div className="relative h-96 md:h-[500px] overflow-hidden">
               {item.metadata?.featured_image && (
                 <img
                   src={`${item.metadata.featured_image.imgix_url}?w=1200&h=600&fit=crop&auto=format,compress`}
