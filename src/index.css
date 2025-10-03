@@ -54,3 +54,28 @@
 }
 
 
+/* Fuerza a que todos los slides ocupen el mismo ancho y alto */
+.slick-slider,
+.slick-list,
+.slick-track {
+  height: 100%;
+}
+
+.slick-slide {
+  height: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Oculta los slides no activos en fade */
+.slick-slide:not(.slick-active) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* El slide activo ocupa todo el espacio */
+.slick-slide.slick-active {
+  opacity: 1;
+  visibility: visible;
+}
