@@ -26,25 +26,21 @@ interface NewsCarouselProps {
 
 const NewsCarousel: React.FC<NewsCarouselProps> = ({ news, getCategoryColor, getPriorityBadge }) => {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    fade: true,
-    arrows: false,
-    appendDots: (dots: React.ReactNode) => (
-      <div className="flex justify-center mt-4 space-x-2">
-        {dots}
-      </div>
-    ),
-    customPaging: (i: number) => (
-      <button
-        className="w-2 h-2 rounded-full bg-gray-600"
-        aria-label={`Go to slide ${i + 1}`}
-      />
-    )
-  }
+  dots: true,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  fade: true,
+  arrows: false,
+  customPaging: (i: number) => (
+    <button
+      className="w-2 h-2 rounded-full bg-gray-600"
+      aria-label={`Go to slide ${i + 1}`}
+    />
+  ),
+}
+
 
   return (
     <div className="relative">
