@@ -75,7 +75,7 @@ export default function Home() {
                 </p>
             </div>
 
-          <h1 className="text-4xl font-bold mb-8">Últimas Noticias</h1>
+          <h1 className="text-4xl font-bold mb-8">Últimas Noticiaaas</h1>
 
         {/* 🔹 Invocás tu carrusel con props */}
         {news.length > 0 && (

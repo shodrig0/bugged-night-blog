@@ -55,14 +55,10 @@
 
 
 
-
-/* fuerza a que todos los slides ocupen el mismo espacio */
+/* Asegura que con fade los slides se superpongan correctamente */
 .slick-slide {
-  display: flex !important;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente si hace falta */
+  display: none;
 }
-
-.slick-slide > div {
-  width: 100%; /* asegura que cada slide ocupe todo el ancho del carrusel */
+.slick-slide.slick-active {
+  display: block;
 }
