@@ -154,6 +154,19 @@ export default function PatchNotes() {
                                         </div>
                                     </div>
                                 )}
+                                {patch.metadata.faqs && patch.metadata.faqs.length > 0 && (
+                                    <div className="mt-6">
+                                        <h4 className="text-lg font-semibold text-cyan-400 mb-3">Preguntas Frecuentes</h4>
+                                        <div className="space-y-3">
+                                            {patch.metadata.faqs.map((faq, idx) => (
+                                                <div key={idx} className="bg-dark p-4 rounded-lg border border-dark-border">
+                                                    <h5 className="font-medium text-cyan-300 mb-1">{faq.question}</h5>
+                                                    <p className="text-sm text-gray-300">{faq.answer}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                         </div>

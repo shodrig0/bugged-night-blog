@@ -100,8 +100,14 @@ export interface PatchNote extends CosmicObject {
         bug_fixes?: string[];
         new_features?: NewFeature[];
         download_size?: string;
+
+        faqs?: {
+            question: string;
+            answer: string;
+        }[];
     };
 }
+
 
 // Player Ranking types
 export type PlayerRegion = 'na' | 'eu' | 'latam' | 'asia';
