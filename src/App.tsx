@@ -6,7 +6,7 @@ import Rankings from './pages/Rankings'
 import PatchNotes from './pages/PatchNotes'
 import Maps from './pages/Maps'
 import Tournaments from './pages/Tournaments'
-import CosmicBadge from './components/CosmicBadge'
+// import CosmicBadge from './components/CosmicBadge'
 
 export default function App() {
     return (
@@ -23,7 +23,7 @@ export default function App() {
                         <Route path="/tournaments" element={<Tournaments />} />
                     </Routes>
                 </main>
-                <CosmicBadge bucketSlug={import.meta.env.VITE_COSMIC_BUCKET_SLUG as string} />
+                {/* <CosmicBadge bucketSlug={import.meta.env.VITE_COSMIC_BUCKET_SLUG as string} /> */}
             </div>
         </Router>
     )
