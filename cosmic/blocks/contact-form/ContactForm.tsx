@@ -63,8 +63,6 @@ export function ContactForm({ className }: { className?: string }) {
       className={cn("max-w-4xl mx-auto bg-gray-900 p-6 rounded-lg", className)}
     >
       <h2 className="mb-6 text-2xl font-bold text-white">Contact us</h2>
-
-      {/* Error */}
       <AnimatePresence>
         {error && (
           <motion.div
@@ -82,8 +80,6 @@ export function ContactForm({ className }: { className?: string }) {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Success */}
       <AnimatePresence>
         {submitted && (
           <motion.div
@@ -151,7 +147,7 @@ export function ContactForm({ className }: { className?: string }) {
             />
           </AnimatedField>
 
-          {/* Botón animado */}
+
           <motion.div
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             className="pt-4"

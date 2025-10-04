@@ -60,7 +60,6 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ news }) => {
         {news.map((item) => (
           <div key={item.id} className="card overflow-hidden">
             <div className="relative h-96 md:h-[500px]">
-              {/* Imagen */}
               {item.metadata?.featured_image && (
                 <img
                   src={`${item.metadata.featured_image.imgix_url}?w=1200&h=600&fit=crop&auto=format,compress`}
@@ -73,7 +72,6 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ news }) => {
 
          
               <div className="absolute inset-0 flex flex-col justify-end p-8">
-                {/* Categoría + prioridad */}
                 <div className="flex items-center gap-3 mb-4">
                   {item.metadata?.category && (
                     <span
@@ -87,29 +85,21 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ news }) => {
                   {item.metadata?.priority &&
                     getPriorityBadge(item.metadata.priority.key)}
                 </div>
-
-                {/* Título */}
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   {item.title}
                 </h2>
-
-                {/* Fecha y autor */}
                 {item.metadata?.publication_date && (
                   <p className="text-gray-400 mb-4">
                     {format(new Date(item.metadata.publication_date), "MMMM dd, yyyy")}
                     {item.metadata?.author && ` • By ${item.metadata.author}`}
                   </p>
                 )}
-
-                {/* Contenido resumido */}
                 <div
                   className="text-gray-300 line-clamp-3"
                   dangerouslySetInnerHTML={{
                     __html: item.metadata?.content || "",
                   }}
                 />
-
-                {/* Botón */}
                 {item.metadata?.related_link && (
                   <a
                     href={item.metadata.related_link}
