@@ -5,6 +5,7 @@ import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
 import { format } from 'date-fns'
 
+
 export default function Tournaments() {
     const [tournaments, setTournaments] = useState<Tournament[]>([])
     const [loading, setLoading] = useState(true)
@@ -71,7 +72,6 @@ export default function Tournaments() {
                 </p>
             </div>
 
-            {/* Status Filter */}
             <div className="flex justify-center gap-4 flex-wrap">
                 <button
                     onClick={() => setSelectedStatus('all')}
@@ -111,7 +111,6 @@ export default function Tournaments() {
                 </button>
             </div>
 
-            {/* Tournaments Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {filteredTournaments.map((tournament) => {
                     if (!tournament || !tournament.metadata) return null
@@ -137,8 +136,6 @@ export default function Tournaments() {
                             )}
 
                             <h3 className="text-2xl font-bold mb-2">{tournament.title}</h3>
-
-                            {/* Tournament Details */}
                             <div className="grid grid-cols-2 gap-4 mb-4">
                                 {tournament.metadata.start_date && (
                                     <div>
@@ -157,8 +154,6 @@ export default function Tournaments() {
                                     </div>
                                 )}
                             </div>
-
-                            {/* Prize Pool */}
                             {tournament.metadata.prize_pool && (
                                 <div className="mb-4">
                                     <div className="text-xs text-gray-400 mb-1">Prize Pool</div>
@@ -167,8 +162,6 @@ export default function Tournaments() {
                                     </div>
                                 </div>
                             )}
-
-                            {/* Participants */}
                             <div className="flex items-center justify-between mb-4">
                                 {tournament.metadata.participants_count !== undefined && tournament.metadata.max_participants && (
                                     <div>
@@ -187,16 +180,12 @@ export default function Tournaments() {
                                     </div>
                                 )}
                             </div>
-
-                            {/* Description */}
                             {tournament.metadata.content && (
                                 <div
                                     className="text-gray-300 text-sm mb-4"
                                     dangerouslySetInnerHTML={{ __html: tournament.metadata.content }}
                                 />
                             )}
-
-                            {/* Registration Link */}
                             {tournament.metadata.registration_link && tournament.metadata.status?.key !== 'finished' && (
                                 <a
                                     href={tournament.metadata.registration_link}

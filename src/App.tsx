@@ -8,6 +8,7 @@ import Maps from './pages/Maps'
 import Tournaments from './pages/Tournaments'
 import { ContactForm } from '../cosmic/blocks/contact-form/ContactForm'
 import { FAQsWrapper } from '../cosmic/blocks/faqs/FAQs'
+import Footer from './components/Footer'
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
                 </main>
                 {/* <CosmicBadge bucketSlug={import.meta.env.VITE_COSMIC_BUCKET_SLUG as string} /> */}
             </div>
+            <Footer/>
         </Router>
     )
 }
