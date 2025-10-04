@@ -2,18 +2,13 @@
 
 import { useState } from "react"
 import { CheckCircle, Loader2, XCircle } from "lucide-react"
-import { cn } from "../../utils"
+import { motion, AnimatePresence } from "framer-motion"
 
-import { Button } from '../../elements/Button'
-import { Input } from '../../elements/Input'
-import { Label } from '../../elements/Label'
-import { Textarea } from '../../elements/TextArea'
-// import * as utils from '../../utils'
-// import * as actions from './actions'
-import {
-  addSubmission,
-  AddSubmissionType,
-} from "./actions"
+import { Input } from "../../elements/Input"
+import { Textarea } from "../../elements/TextArea"
+import { addSubmission, AddSubmissionType } from "./actions"
+import { cn } from "../../utils"
+import AnimatedField from "./AnimatedField"
 
 export function ContactForm({ className }: { className?: string }) {
   const [name, setName] = useState("")
@@ -21,135 +16,169 @@ export function ContactForm({ className }: { className?: string }) {
   const [company, setCompany] = useState("")
   const [message, setMessage] = useState("")
   const [submitting, setSubmitting] = useState(false)
-  const [sumbitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
+
   async function handleSubmitComment(e: React.SyntheticEvent) {
     e.preventDefault()
     setError(false)
     setSubmitting(true)
+
     if (!name.trim() || !email.trim() || !message.trim()) {
       setSubmitting(false)
       setError(true)
       return
     }
+
     const newSubmission: AddSubmissionType = {
       type: "form-submissions",
       title: name,
-      metadata: {
-        email,
-        company,
-        message,
-      },
+      metadata: { email, company, message },
     }
+
     try {
       const res = await addSubmission(newSubmission)
-      if (!res.object) {
-        setSubmitting(false)
-        setError(true)
-        return
-      } else {
-        setSubmitting(false)
-        setSubmitted(true)
-        setTimeout(() => {
-          setSubmitted(false)
-          setName("")
-          setEmail("")
-          setCompany("")
-          setMessage("")
-        }, 3000)
-      }
-    } catch (err) {
-      setSubmitting(false)
+      if (!res.object) throw new Error("No response")
+
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+        setName("")
+        setEmail("")
+        setCompany("")
+        setMessage("")
+      }, 3000)
+    } catch {
       setError(true)
-      return
+    } finally {
+      setSubmitting(false)
     }
   }
-  function handleChangeName(e: React.SyntheticEvent) {
-    const target = e.target as HTMLInputElement
-    setName(target.value)
-  }
-  function handleChangeEmail(e: React.SyntheticEvent) {
-    const target = e.target as HTMLInputElement
-    setEmail(target.value)
-  }
-  function handleChangeCompany(e: React.SyntheticEvent) {
-    const target = e.target as HTMLInputElement
-    setCompany(target.value)
-  }
-  function handleChangeMessage(e: React.SyntheticEvent) {
-    const target = e.target as HTMLInputElement
-    setMessage(target.value)
-  }
+
   return (
-    <div className={cn("mb-8", className)}>
-      <h2 className="mb-4 text-2xl">Contact us</h2>
-      {error && (
-        <div className="mb-4 flex rounded-xl border border-red-500 p-8">
-          <XCircle className="relative top-1 mr-4 h-4 w-4 shrink-0 text-red-500" />
-          There was an error with your request. Make sure all fields are valid.
-        </div>
-      )}
-      {sumbitted ? (
-        <div className="flex rounded-xl border border-green-500 p-8">
-          <CheckCircle className="relative top-1 mr-4 h-4 w-4 shrink-0 text-green-500" />
-          Message submitted.
-        </div>
-      ) : (
-        <>
-          <div className="mb-4">
-            <Label htmlFor="name">Your full name *</Label>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={cn("max-w-4xl mx-auto bg-gray-900 p-6 rounded-lg", className)}
+    >
+      <h2 className="mb-6 text-2xl font-bold text-white">Contact us</h2>
+
+      {/* Error */}
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            key="error"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="mb-4 flex rounded-xl border border-red-500 p-4 bg-red-900/20 text-red-400"
+          >
+            <XCircle className="mr-2 h-5 w-5 shrink-0" />
+            <span>
+              There was an error with your request. Make sure all fields are valid.
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Success */}
+      <AnimatePresence>
+        {submitted && (
+          <motion.div
+            key="success"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.4 }}
+            className="flex rounded-xl border border-green-500 p-4 bg-green-900/20 text-green-400"
+          >
+            <CheckCircle className="mr-2 h-5 w-5 shrink-0" />
+            <span>Message submitted successfully 🎉</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {!submitted && (
+        <motion.form
+          onSubmit={handleSubmitComment}
+          className="space-y-4"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+          }}
+        >
+          <AnimatedField label="Your full name *" id="name">
             <Input
               id="name"
               placeholder="Name"
-              onChange={handleChangeName}
               value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
-          </div>
-          <div className="mb-4">
-            <Label htmlFor="email">Your email *</Label>
+          </AnimatedField>
+
+          <AnimatedField label="Your email *" id="email">
             <Input
               id="email"
               placeholder="Email"
-              onChange={handleChangeEmail}
               value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
-          </div>
-          <div className="mb-4">
-            <Label htmlFor="email">Company *</Label>
+          </AnimatedField>
+
+          <AnimatedField label="Company" id="company">
             <Input
               id="company"
               placeholder="Company"
-              onChange={handleChangeCompany}
               value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
-          </div>
-          <div className="mb-4">
-            <Label htmlFor="message">Message *</Label>
+          </AnimatedField>
+
+          <AnimatedField label="Message *" id="message">
             <Textarea
               id="message"
               placeholder="Message"
-              onChange={handleChangeMessage}
               value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
-          </div>
-          <div>
-            <Button
-              onClick={handleSubmitComment}
+          </AnimatedField>
+
+          {/* Botón animado */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="pt-4"
+          >
+            <motion.button
               type="submit"
               disabled={submitting}
+              className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50 focus:outline-none"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 0px 16px rgba(34, 211, 238, 0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               {submitting ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 inline-block animate-spin" />
                   Submitting...
                 </>
               ) : (
-                `Submit`
+                "Submit"
               )}
-            </Button>
-          </div>
-        </>
+            </motion.button>
+          </motion.div>
+        </motion.form>
       )}
-    </div>
+    </motion.div>
   )
 }
