@@ -210,3 +210,15 @@ export interface CosmicResponse<T> {
     objects: T[];
     total: number;
 }
+
+export interface FAQ {
+    question: string;
+    answer: string;
+}
+
+export interface FAQObject extends CosmicObject {
+    type: 'faqs';
+    metadata: {
+        preguntas_frecuentes: FAQ[];
+    };
+}

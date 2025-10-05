@@ -1,4 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
+import { FAQ } from '../types'
 
 
 export const cosmic = createBucketClient({
@@ -45,5 +46,20 @@ export async function createComment(
     } catch (error) {
 
         throw new Error('Falló la creación')
+    }
+}
+
+export async function getFAQs(): Promise<FAQ[]> {
+    try {
+        const { object } = await cosmic.objects.findOne({
+            type: "faqs",
+            slug: "preguntas-frecuenteeeees"
+        })
+            .props("slug,title,metadata.preguntas_frecuentes,type")
+            .depth(1)
+
+        return object?.metadata?.preguntas_frecuentes || []
+    } catch (error) {
+        return []
     }
 }
