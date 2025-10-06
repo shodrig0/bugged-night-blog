@@ -122,10 +122,10 @@ export default function Characters() {
     <div className="space-y-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-          Characters
+          Personajes
         </h1>
         <p className="text-gray-400 text-lg">
-          Master unique abilities and dominate the arena
+          Conocé a los personajes disponibles del juego
         </p>
       </div>
 
@@ -134,17 +134,16 @@ export default function Characters() {
           <button
             key={role}
             onClick={() => setSelectedRole(role as CharacterRole | 'all')}
-            className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-              selectedRole === role
+            className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === role
                 ? role === 'assassin'
                   ? 'bg-red-500 text-white'
                   : role === 'hunter'
-                  ? 'bg-secondary text-white'
-                  : role === 'survivor'
-                  ? 'bg-accent text-white'
-                  : 'bg-primary text-white'
+                    ? 'bg-secondary text-white'
+                    : role === 'survivor'
+                      ? 'bg-accent text-white'
+                      : 'bg-primary text-white'
                 : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
-            }`}
+              }`}
           >
             {role === 'all'
               ? 'All'

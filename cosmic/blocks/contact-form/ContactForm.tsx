@@ -62,7 +62,7 @@ export function ContactForm({ className }: { className?: string }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn("max-w-4xl mx-auto bg-gray-900 p-6 rounded-lg", className)}
     >
-      <h2 className="mb-6 text-2xl font-bold text-white">Contact us</h2>
+      <h2 className="mb-6 text-2xl font-bold text-white">Contactanos</h2>
       <AnimatePresence>
         {error && (
           <motion.div
@@ -75,7 +75,7 @@ export function ContactForm({ className }: { className?: string }) {
           >
             <XCircle className="mr-2 h-5 w-5 shrink-0" />
             <span>
-              There was an error with your request. Make sure all fields are valid.
+              Hubo un error. Asegurate que el valor de los campos estén correctos.
             </span>
           </motion.div>
         )}
@@ -91,7 +91,7 @@ export function ContactForm({ className }: { className?: string }) {
             className="flex rounded-xl border border-green-500 p-4 bg-green-900/20 text-green-400"
           >
             <CheckCircle className="mr-2 h-5 w-5 shrink-0" />
-            <span>Message submitted successfully 🎉</span>
+            <span>Mensaje enviado con éxito</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -166,10 +166,10 @@ export function ContactForm({ className }: { className?: string }) {
               {submitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 inline-block animate-spin" />
-                  Submitting...
+                  Enviando...
                 </>
               ) : (
-                "Submit"
+                "Enviar"
               )}
             </motion.button>
           </motion.div>

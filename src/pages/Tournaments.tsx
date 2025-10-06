@@ -65,10 +65,10 @@ export default function Tournaments() {
         <div className="space-y-8">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                    Tournaments
+                    Torneos
                 </h1>
                 <p className="text-gray-400 text-lg">
-                    Compete for glory and incredible prizes
+                    Competí por la gloria!!!
                 </p>
             </div>
 
@@ -76,38 +76,38 @@ export default function Tournaments() {
                 <button
                     onClick={() => setSelectedStatus('all')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedStatus === 'all'
-                            ? 'bg-primary text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-primary text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
-                    All
+                    Todos
                 </button>
                 <button
                     onClick={() => setSelectedStatus('live')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedStatus === 'live'
-                            ? 'bg-green-500 text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-green-500 text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
-                    Live
+                    En Vivo
                 </button>
                 <button
                     onClick={() => setSelectedStatus('upcoming')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedStatus === 'upcoming'
-                            ? 'bg-primary text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-primary text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
-                    Upcoming
+                    Próximo...
                 </button>
                 <button
                     onClick={() => setSelectedStatus('finished')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedStatus === 'finished'
-                            ? 'bg-gray-600 text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-gray-600 text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
-                    Finished
+                    Finalizado
                 </button>
             </div>
 
@@ -139,7 +139,7 @@ export default function Tournaments() {
                             <div className="grid grid-cols-2 gap-4 mb-4">
                                 {tournament.metadata.start_date && (
                                     <div>
-                                        <div className="text-xs text-gray-400 mb-1">Start Date</div>
+                                        <div className="text-xs text-gray-400 mb-1">Fecha Inicio</div>
                                         <div className="text-sm font-medium">
                                             {format(new Date(tournament.metadata.start_date), 'MMM dd, yyyy')}
                                         </div>
@@ -147,7 +147,7 @@ export default function Tournaments() {
                                 )}
                                 {tournament.metadata.end_date && (
                                     <div>
-                                        <div className="text-xs text-gray-400 mb-1">End Date</div>
+                                        <div className="text-xs text-gray-400 mb-1">Fecha Finalización</div>
                                         <div className="text-sm font-medium">
                                             {format(new Date(tournament.metadata.end_date), 'MMM dd, yyyy')}
                                         </div>
@@ -156,7 +156,7 @@ export default function Tournaments() {
                             </div>
                             {tournament.metadata.prize_pool && (
                                 <div className="mb-4">
-                                    <div className="text-xs text-gray-400 mb-1">Prize Pool</div>
+                                    <div className="text-xs text-gray-400 mb-1">Premio acumulado</div>
                                     <div className="text-2xl font-bold gradient-text">
                                         {tournament.metadata.prize_pool}
                                     </div>
@@ -165,7 +165,7 @@ export default function Tournaments() {
                             <div className="flex items-center justify-between mb-4">
                                 {tournament.metadata.participants_count !== undefined && tournament.metadata.max_participants && (
                                     <div>
-                                        <div className="text-xs text-gray-400 mb-1">Participants</div>
+                                        <div className="text-xs text-gray-400 mb-1">Participantes</div>
                                         <div className="text-sm font-medium">
                                             {tournament.metadata.participants_count} / {tournament.metadata.max_participants}
                                         </div>
@@ -173,7 +173,7 @@ export default function Tournaments() {
                                 )}
                                 {tournament.metadata.winner && (
                                     <div className="text-right">
-                                        <div className="text-xs text-gray-400 mb-1">Winner</div>
+                                        <div className="text-xs text-gray-400 mb-1">Ganador</div>
                                         <div className="text-sm font-bold text-yellow-400">
                                             {tournament.metadata.winner}
                                         </div>
@@ -193,7 +193,7 @@ export default function Tournaments() {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary w-full text-center"
                                 >
-                                    Register Now
+                                    Registrate!
                                 </a>
                             )}
                         </div>
@@ -203,7 +203,7 @@ export default function Tournaments() {
 
             {filteredTournaments.length === 0 && (
                 <div className="text-center py-12">
-                    <p className="text-gray-400">No tournaments found</p>
+                    <p className="text-gray-400">Sin torneos por acá</p>
                 </div>
             )}
         </div>

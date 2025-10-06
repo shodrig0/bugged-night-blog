@@ -72,10 +72,10 @@ export default function Maps() {
         <div className="space-y-8">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                    Game Maps
+                    Mapas disponibles
                 </h1>
                 <p className="text-gray-400 text-lg">
-                    Explore diverse battlegrounds and master tactical positions
+                    Explorá la grandisima cantidad de mapas que tiene el juego
                 </p>
             </div>
 
@@ -84,19 +84,19 @@ export default function Maps() {
                 <button
                     onClick={() => setSelectedEnvironment('all')}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedEnvironment === 'all'
-                            ? 'bg-primary text-white'
-                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                        ? 'bg-primary text-white'
+                        : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                         }`}
                 >
-                    All
+                    Todos
                 </button>
-                {['urban', 'forest', 'industrial', 'desert'].map((env) => (
+                {['urbano', 'bosque', 'industrial', 'desierto'].map((env) => (
                     <button
                         key={env}
                         onClick={() => setSelectedEnvironment(env as MapEnvironment)}
                         className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedEnvironment === env
-                                ? 'bg-primary text-white'
-                                : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+                            ? 'bg-primary text-white'
+                            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
                             }`}
                     >
                         {env.charAt(0).toUpperCase() + env.slice(1)}
@@ -134,7 +134,7 @@ export default function Maps() {
                                             )}
                                             {map.metadata.max_players && (
                                                 <span className="text-sm text-gray-300">
-                                                    • {map.metadata.max_players} Players
+                                                    • {map.metadata.max_players} Jugadores
                                                 </span>
                                             )}
                                         </div>
@@ -162,7 +162,7 @@ export default function Maps() {
                             {/* Special Features */}
                             {map.metadata.special_features && map.metadata.special_features.length > 0 && (
                                 <div>
-                                    <h4 className="text-sm font-semibold text-primary mb-3">Special Features</h4>
+                                    <h4 className="text-sm font-semibold text-primary mb-3">Añadidos especiales</h4>
                                     <div className="space-y-2">
                                         {map.metadata.special_features.map((feature, index) => (
                                             <div key={index} className="bg-dark p-3 rounded-lg border border-dark-border">
@@ -180,7 +180,7 @@ export default function Maps() {
 
             {filteredMaps.length === 0 && (
                 <div className="text-center py-12">
-                    <p className="text-gray-400">No maps found for this environment</p>
+                    <p className="text-gray-400">No se encontraron mapas</p>
                 </div>
             )}
         </div>

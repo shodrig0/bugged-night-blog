@@ -96,16 +96,16 @@ export default function Rankings() {
       chartType === "players"
         ? playersPerRegion.map((p) => p.label)
         : chartType === "winrate"
-        ? winratePerRegion.map((w) => w.label)
-        : pointsPerRegion.map((p) => p.label),
+          ? winratePerRegion.map((w) => w.label)
+          : pointsPerRegion.map((p) => p.label),
     datasets: [
       {
         data:
           chartType === "players"
             ? playersPerRegion.map((p) => p.value)
             : chartType === "winrate"
-            ? winratePerRegion.map((w) => w.value)
-            : pointsPerRegion.map((p) => p.value),
+              ? winratePerRegion.map((w) => w.value)
+              : pointsPerRegion.map((p) => p.value),
         backgroundColor: colors,
         borderColor: "#1f2937",
         borderWidth: 2,
@@ -117,30 +117,28 @@ export default function Rankings() {
     <div className="space-y-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-          Player Rankings
+          Rankings de Jugadores
         </h1>
-        <p className="text-gray-400 text-lg">Top players competing for glory</p>
+        <p className="text-gray-400 text-lg">El top tier de los gloriosos</p>
       </div>
       <div className="flex justify-center gap-4 flex-wrap">
         <button
           onClick={() => setSelectedRegion('all')}
-          className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-            selectedRegion === 'all'
-              ? 'bg-primary text-white'
-              : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
-          }`}
+          className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRegion === 'all'
+            ? 'bg-primary text-white'
+            : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+            }`}
         >
-          All Regions
+          Todas las regiones
         </button>
         {['na', 'eu', 'latam', 'asia'].map((region) => (
           <button
             key={region}
             onClick={() => setSelectedRegion(region as PlayerRegion)}
-            className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-              selectedRegion === region
-                ? 'bg-primary text-white'
-                : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
-            }`}
+            className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRegion === region
+              ? 'bg-primary text-white'
+              : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+              }`}
           >
             {region.toUpperCase()}
           </button>
@@ -150,14 +148,14 @@ export default function Rankings() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-dark-border">
-              <th className="text-left py-4 px-4">Rank</th>
-              <th className="text-left py-4 px-4">Player</th>
+              <th className="text-left py-4 px-4">Ranngo</th>
+              <th className="text-left py-4 px-4">Jugador</th>
               <th className="text-center py-4 px-4">Region</th>
-              <th className="text-center py-4 px-4">Points</th>
-              <th className="text-center py-4 px-4">Wins</th>
-              <th className="text-center py-4 px-4">Matches</th>
-              <th className="text-center py-4 px-4">Win Rate</th>
-              <th className="text-left py-4 px-4">Favorite Character</th>
+              <th className="text-center py-4 px-4">Puntos</th>
+              <th className="text-center py-4 px-4">Victorias</th>
+              <th className="text-center py-4 px-4">Partidas</th>
+              <th className="text-center py-4 px-4">Tasa de Victoria</th>
+              <th className="text-left py-4 px-4">Personaje Favorito</th>
             </tr>
           </thead>
           <tbody>
@@ -228,25 +226,22 @@ export default function Rankings() {
       <div className="flex justify-center gap-4 mt-12">
         <button
           onClick={() => setChartType("players")}
-          className={`px-6 py-2 rounded-lg font-medium ${
-            chartType === "players" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
-          }`}
+          className={`px-6 py-2 rounded-lg font-medium ${chartType === "players" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
+            }`}
         >
           Jugadores por Región
         </button>
         <button
           onClick={() => setChartType("winrate")}
-          className={`px-6 py-2 rounded-lg font-medium ${
-            chartType === "winrate" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
-          }`}
+          className={`px-6 py-2 rounded-lg font-medium ${chartType === "winrate" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
+            }`}
         >
           Win Rate por Región
         </button>
         <button
           onClick={() => setChartType("points")}
-          className={`px-6 py-2 rounded-lg font-medium ${
-            chartType === "points" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
-          }`}
+          className={`px-6 py-2 rounded-lg font-medium ${chartType === "points" ? "bg-primary text-white" : "bg-dark-lighter text-gray-400"
+            }`}
         >
           Región con más Puntos
         </button>
