@@ -4,12 +4,7 @@ import { Character, CharacterRole } from '../types'
 import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
 
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
-} from "framer-motion"
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion"
 
 export default function Characters() {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -118,6 +113,8 @@ export default function Characters() {
     )
   }
 
+  // group-hover:scale-110 transition-transform duration-300
+
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
@@ -135,14 +132,14 @@ export default function Characters() {
             key={role}
             onClick={() => setSelectedRole(role as CharacterRole | 'all')}
             className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${selectedRole === role
-                ? role === 'assassin'
-                  ? 'bg-red-500 text-white'
-                  : role === 'hunter'
-                    ? 'bg-secondary text-white'
-                    : role === 'survivor'
-                      ? 'bg-accent text-white'
-                      : 'bg-primary text-white'
-                : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
+              ? role === 'assassin'
+                ? 'bg-red-500 text-white'
+                : role === 'hunter'
+                  ? 'bg-secondary text-white'
+                  : role === 'survivor'
+                    ? 'bg-accent text-white'
+                    : 'bg-primary text-white'
+              : 'bg-dark-lighter text-gray-400 hover:text-gray-100'
               }`}
           >
             {role === 'all'
@@ -164,7 +161,7 @@ export default function Characters() {
                   <img
                     src={`${character.metadata.character_image.imgix_url}?w=600&h=400&fit=crop&auto=format,compress`}
                     alt={character.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
@@ -193,20 +190,20 @@ export default function Characters() {
                   <div className="text-2xl font-bold text-secondary">
                     {character.metadata.speed || 0}
                   </div>
-                  <div className="text-xs text-gray-400">Speed</div>
+                  <div className="text-xs text-gray-400">Velocidad</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg text-yellow-400">
                     {getDifficultyStars(character.metadata.difficulty?.key)}
                   </div>
-                  <div className="text-xs text-gray-400">Difficulty</div>
+                  <div className="text-xs text-gray-400">Dificultad</div>
                 </div>
               </div>
 
               {character.metadata.special_ability && (
                 <div className="mb-4">
                   <h4 className="text-sm font-semibold text-primary mb-2">
-                    Special Ability
+                    Habilidad Especial
                   </h4>
                   <p className="text-sm text-gray-300">
                     {character.metadata.special_ability}
@@ -219,7 +216,7 @@ export default function Characters() {
                 character.metadata.skills.length > 0 && (
                   <div className="mb-4">
                     <h4 className="text-sm font-semibold text-secondary mb-2">
-                      Skills
+                      Habilidades
                     </h4>
                     <div className="space-y-2">
                       {character.metadata.skills.map((skill, index) => (
@@ -245,7 +242,7 @@ export default function Characters() {
                 character.metadata.available_skins.length > 0 && (
                   <div>
                     <h4 className="text-sm font-semibold text-accent mb-2">
-                      Available Skins
+                      Skins Disponibles
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {character.metadata.available_skins.map((skin, index) => (

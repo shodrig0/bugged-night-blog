@@ -79,7 +79,7 @@ export default function Comments() {
                         <input
                             type="text"
                             name="name"
-                            placeholder="Name"
+                            placeholder="Esteban"
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -92,7 +92,7 @@ export default function Comments() {
                         <input
                             type="email"
                             name="email"
-                            placeholder="Email"
+                            placeholder="ejemplo@hotmail.com"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -104,7 +104,7 @@ export default function Comments() {
                         <label className="block text-gray-300 mb-2">Comentario</label>
                         <textarea
                             name="comment"
-                            placeholder="Comment"
+                            placeholder="Increíble..."
                             value={formData.comment}
                             onChange={handleChange}
                             required
