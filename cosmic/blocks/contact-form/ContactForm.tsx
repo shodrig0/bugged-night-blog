@@ -107,40 +107,40 @@ export function ContactForm({ className }: { className?: string }) {
             visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
           }}
         >
-          <AnimatedField label="Your full name *" id="name">
+          <AnimatedField label="Nombre *" id="name">
             <Input
               id="name"
-              placeholder="Name"
+              placeholder="Rodrigo"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
           </AnimatedField>
 
-          <AnimatedField label="Your email *" id="email">
+          <AnimatedField label="Email *" id="email">
             <Input
               id="email"
-              placeholder="Email"
+              placeholder="ejemplo@correo.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
           </AnimatedField>
 
-          <AnimatedField label="Company" id="company">
+          <AnimatedField label="Compañía o Establecimiento *" id="company">
             <Input
               id="company"
-              placeholder="Company"
+              placeholder="Tag & Flow S.A."
               value={company}
               onChange={(e) => setCompany(e.target.value)}
               className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
             />
           </AnimatedField>
 
-          <AnimatedField label="Message *" id="message">
+          <AnimatedField label="Mensaje *" id="message">
             <Textarea
               id="message"
-              placeholder="Message"
+              placeholder="Buenas..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg border border-gray-700 focus:outline-none focus:border-cyan-500"
